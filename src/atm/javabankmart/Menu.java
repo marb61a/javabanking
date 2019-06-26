@@ -1,7 +1,7 @@
 package src.atm.javabankmart;
 
 import java.util.*;
-import java.io.PrintStream;
+import java.io.*;
 
 
 public class Menu {
@@ -38,7 +38,7 @@ public class Menu {
 		switch (choice) {
 		case 1:
 			newCustomer();
-			// Menu.clearScreen();
+			System.exit(1);
 			break;
 		case 2:
 			displayCustomerDetails();
@@ -60,12 +60,24 @@ public class Menu {
 		String lastName = input.next();
 		System.out.println("Please enter a password ");
 		String customerNumber = input.next();
-		System.out.println("Please enter a date on birth in dd/mm/yyyy form1 ");
+		System.out.println("Please enter a date on birth in dd/mm/yyyy form");
 		String dateofBirth = input.next();
 		
 		customers.add(new Customer(firstName, lastName, customerNumber, dateofBirth));
 		
-		System.out.println(customers);
+		FileWriter writer;
+		try {
+			writer = new FileWriter("output.txt");
+			for(Customer customer: customers) {
+				writer.write(customer + System.lineSeparator());
+			}
+			
+			writer.close();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} 
+		
 	}
 	
 	
@@ -93,6 +105,7 @@ public class Menu {
 			switch (choice) {
 				case 1:
 					addCustomer();
+					returnMainmenu = true;
 					break;
 				case 2:
 					returnMainmenu = true;
@@ -114,7 +127,7 @@ public class Menu {
 		customerMenu[1] = "*           Customer Details              *";
 		customerMenu[2] = "*******************************************";
 		customerMenu[3] = "*                                         *";
-		customerMenu[4] = "*   1. Display Customer Details             *";
+		customerMenu[4] = "*   1. Display Customer Details           *";
 		customerMenu[5] = "*   2. Return to Main Menu                *";
 		customerMenu[6] = "*                                         *";
 		customerMenu[7] = "*******************************************";
@@ -130,7 +143,7 @@ public class Menu {
 			
 			switch (choice) {
 				case 1:
-					System.out.println("Not yet implemented");
+					System.out.println(customers);
 					break;
 				case 2:
 					returnMainmenu = true;

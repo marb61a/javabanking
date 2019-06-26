@@ -1,4 +1,4 @@
-package org.bank.atm;
+package src.atm.javabankmart;
 
 public class TestHarness {
 	static String[][] customerData = {{"kevin","Hughes", "ABCDEFG", "01/01/1970"},

@@ -1,4 +1,4 @@
-package atm;
+package src.atm.javabankmart;
 
 import java.util.*;
 import java.io.PrintStream;

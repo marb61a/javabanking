@@ -1,4 +1,4 @@
-package org.bank.atm;
+package src.atm.javabankmart;
 
 public class Account {
 	

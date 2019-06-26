@@ -1,4 +1,4 @@
-package org.bank.atm;
+package atm;
 
 import java.util.*;
 import java.io.PrintStream;

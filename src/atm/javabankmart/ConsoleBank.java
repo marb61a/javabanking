@@ -77,7 +77,30 @@ public class ConsoleBank{
 		System.out.println("*                                         *");
 		System.out.println("*******************************************");
 		
+		do {
+			System.out.println("\n Please choose an option");
+			customerChoice = myScan.nextInt();
+			
+			switch(customerChoice) {
+				case 1:
+					outputCustomerDetails();
+					break;
+				case 2:
+					clearScreen();
+					returnMainmenu = true;
+					break;
+				default:
+					break;
+			}
+		} while(!returnMainmenu);
+		
 		displayMainMenu();
+	}
+	
+	static void outputCustomerDetails() {
+		System.out.println("*******************************************");
+		
+		System.out.println("*******************************************");
 	}
 	
 	static void clearScreen() {

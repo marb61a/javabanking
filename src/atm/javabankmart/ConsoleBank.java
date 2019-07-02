@@ -41,12 +41,18 @@ public class ConsoleBank{
 		// Using a switch statement for customer choice
 		switch(customerChoice) {
 			case 1 :
+				clearScreen();
 				newCustomer();
 				break;
 			case 2 :
+				clearScreen();
 				displayCustomerDetails();
 				break;
 			case 3:
+				clearScreen();
+				System.exit(0);
+				break;
+			default:
 				break;
 		}
 	}
@@ -74,4 +80,14 @@ public class ConsoleBank{
 		displayMainMenu();
 	}
 	
+	static void clearScreen() {
+		try {
+			if (System.getProperty("os.name").contains("Windows"))
+	            new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
+	        else
+	            Runtime.getRuntime().exec("clear");
+		} catch(Exception ex) {
+			System.out.println("Exception: " + ex.toString());
+		}
+	}
 }
